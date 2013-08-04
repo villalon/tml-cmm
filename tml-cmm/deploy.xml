@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="TML cmm" default="create_jar">
+	<import file="../tml/deploy.xml"/>	
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="create_jar">
+		<subant antfile="../tml/deploy.xml" target="create_jar" buildpath="../tml/" verbose="true" failonerror="true">
+		</subant>
+		<jar destfile="target/tml-cmm-${version}.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Class-Path" value="." />
+				<attribute name="Built-By" value="Jorge Villalon" />
+				<attribute name="Specification-Title" value="Text Mining Libary - Concept Map Mining" />
+				<attribute name="Specification-Version" value="${version}" />
+				<attribute name="Specification-Vendor" value="www.villalon.cl" />
+				<attribute name="Implementation-Title" value="common" />
+				<attribute name="Implementation-Version" value="${version}" />
+				<attribute name="Implementation-Vendor" value="Jorge Villalon" />
+			</manifest>
+			<fileset dir="target/classes" />
+		</jar>
+	</target>
+</project>
